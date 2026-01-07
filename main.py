@@ -1,5 +1,5 @@
 from aiogram import Bot, Dispatcher, types, F
-from aiogram.filters import CommandStart
+from aiogram.filters import CommandStart, Command
 
 import logging
 import asyncio
@@ -22,6 +22,9 @@ dp = Dispatcher()
 async def start_hendler(message: types.Message):
     await message.answer("Salom hammaga")
 
+@dp.message(Command("help"))
+async def help_hendler(message: types.Message):
+    await message.answer("Salom nima yordam kerak")
 
 
 async def main():
